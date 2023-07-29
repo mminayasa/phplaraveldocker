@@ -1,0 +1,27 @@
+version: '3.3'
+services:
+  webserver:
+    container_name: webserver
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - database
+    volumes:
+      - ./www:/var/www/html/
+    ports:
+      - 80:80
+      - 443:443
+  database:
+    container_name: database
+    image: postgres:10.1
+    restart: always
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - 5432:5432
+    volumes:
+      - ./dbdata:/var/lib/pgsql
