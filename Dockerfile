@@ -1,4 +1,4 @@
-FROM php:7.2.5-alpine
+FROM php:7.3-fpm
 
 RUN apt-get update 
 RUN apt-get install -y libpq-dev zip unzip npm 
