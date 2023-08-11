@@ -1,4 +1,4 @@
-FROM php:7.3-fpm
+FROM php:7.4-fpm
 
 RUN apt-get update 
 RUN apt-get install -y libpq-dev zip unzip npm apache2
